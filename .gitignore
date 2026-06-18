@@ -1,0 +1,12 @@
+.metadata/
+target/
+bin/
+.classpath
+.project
+.settings/
+*.class
+*.log
+.idea/
+*.iml
+.vscode/
+mysql-connector-j-*.jar
