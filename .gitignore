@@ -10,3 +10,4 @@ bin/
 *.iml
 .vscode/
 mysql-connector-j-*.jar
+my-picture.png
