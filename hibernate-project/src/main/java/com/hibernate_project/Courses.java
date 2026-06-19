@@ -11,10 +11,13 @@ public class Courses {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int course_id;
+	
 	@Column
 	String course_name;
+	
 	@Column(name="student_id")
-	int registration_id;
+	Integer registration_id;
+	
 	public int getCourse_id() {
 		return course_id;
 	}
@@ -27,16 +30,16 @@ public class Courses {
 	public void setCourse_name(String course_name) {
 		this.course_name = course_name;
 	}
-	public int getRegistration_id() {
+	public Integer getRegistration_id() {
 		return registration_id;
 	}
-	public void setRegistration_id(int registration_id) {
+	public void setRegistration_id(Integer registration_id) {
 		this.registration_id = registration_id;
 	}
 	public Courses() {
 		super();
 	}
-	public Courses(int course_id, String course_name, int registration_id) {
+	public Courses(int course_id, String course_name, Integer registration_id) {
 		super();
 		this.course_id = course_id;
 		this.course_name = course_name;

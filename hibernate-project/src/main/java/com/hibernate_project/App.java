@@ -23,22 +23,23 @@ public class App
        
        Session session = factory.openSession();
        Transaction txc = session.beginTransaction();
-//       Student student = session.get(Student.class, 1001);
-       
-       //delete an object
-//       if(student != null) {
-//    	   session.delete(student);
-//    	   System.out.println("deleted successfully...");
-//       }else {
-//    	   System.out.println("Record not found..");
-//       }
        
        //save all student
        for(Student s: studentList) {
            session.save(s);
          
        }
-       
+       Courses[] courseList = {
+    		   new Courses(1, "Engineering Mathematics", null),
+    		   new Courses(2, "Physics", null),
+    		   new Courses(3, "Chemistry", null),
+    		   new Courses(4, "Introduction to programming in C", null)
+       };
+       //save all courses
+       for(Courses c: courseList) {
+    	   session.save(c);
+       }
+             
        txc.commit();
        session.close();
        factory.close();
