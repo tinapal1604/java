@@ -14,6 +14,11 @@ public class App
     		   .buildSessionFactory();
        System.out.println(factory);
        
+       
+     Session session = factory.openSession();
+     Transaction txc = session.beginTransaction();
+       
+       
        //create student
        Student[] studentList = {
     		   new Student(1004, "Mike", "B.Tech"),
@@ -21,8 +26,7 @@ public class App
     		   new Student(1006, "Juilet", "B.Tech"),
        };
        
-       Session session = factory.openSession();
-       Transaction txc = session.beginTransaction();
+
        
        //save all student
        for(Student s: studentList) {
@@ -30,7 +34,7 @@ public class App
          
        }
        Courses[] courseList = {
-    		   new Courses(1, "Engineering Mathematics", null),
+    		   new Courses(1, "Engineering Mathematics",null),
     		   new Courses(2, "Physics", null),
     		   new Courses(3, "Chemistry", null),
     		   new Courses(4, "Introduction to programming in C", null)
@@ -39,7 +43,9 @@ public class App
        for(Courses c: courseList) {
     	   session.save(c);
        }
-             
+            
+     
+     
        txc.commit();
        session.close();
        factory.close();

@@ -1,23 +1,42 @@
 package com.hibernate_project;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="courses")
 public class Courses {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int course_id;
+	private int course_id;
 	
 	@Column
-	String course_name;
+	private String course_name;
 	
-	@Column(name="student_id")
-	Integer registration_id;
+	@ManyToMany(mappedBy="subjectsOpted")
+	private List<Student> students;
 	
+	
+	public Courses() {
+		super();
+	}
+		
+	public Courses(int course_id, String course_name, List<Student> student) {
+		super();
+		this.course_id = course_id;
+		this.course_name = course_name;
+		this.students = student;
+	}
 	public int getCourse_id() {
 		return course_id;
 	}
@@ -30,26 +49,16 @@ public class Courses {
 	public void setCourse_name(String course_name) {
 		this.course_name = course_name;
 	}
-	public Integer getRegistration_id() {
-		return registration_id;
+	public List<Student> getStudent() {
+		return students;
 	}
-	public void setRegistration_id(Integer registration_id) {
-		this.registration_id = registration_id;
-	}
-	public Courses() {
-		super();
-	}
-	public Courses(int course_id, String course_name, Integer registration_id) {
-		super();
-		this.course_id = course_id;
-		this.course_name = course_name;
-		this.registration_id = registration_id;
-	}
-	@Override
-	public String toString() {
-		return "Courses [course_id=" + course_id + ", course_name=" + course_name + ", registration_id="
-				+ registration_id + "]";
+	public void setStudent(List<Student> student) {
+		this.students = student;
 	}
 
+	@Override
+	public String toString() {
+		return "Courses [course_id=" + course_id + ", course_name=" + course_name + ", student=" + students + "]";
+	}
 	
 }
