@@ -15,5 +15,7 @@
 	<property name="hibernate.show_sql">true</property>
 	<mapping class="com.hibernate_project.Student"/>
 	<mapping class="com.hibernate_project.Courses"/>
+	<mapping class="com.hibernate_project.mappings.Person"/>
+	<mapping class="com.hibernate_project.mappings.Passport"/>
 	</session-factory>
 </hibernate-configuration>
