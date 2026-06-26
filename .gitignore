@@ -11,3 +11,6 @@ bin/
 .vscode/
 mysql-connector-j-*.jar
 my-picture.png
+JSPDemoProject/
+Servers/
+springcore/
